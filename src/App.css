@@ -1,38 +1,232 @@
+/* General styles */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  text-align: center;  
 }
 
 .App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #282c34;
-  min-height: 100vh;
+  padding: 10px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.wallet-info {
+  text-align: right;
+}
+
+.account-info p {
+  margin: 0;
+  padding-left: 0;
+  text-align: start;
+}
+
+.connect-btn {
+  padding: 10px 20px;
+  background-color: #61dafb;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.connect-btn:hover {
+  background-color: #21a1f1;
+}
+
+h1 {
+  margin: 0;
+}
+
+body{
+  background-color: #555;
+  align-items: center;
+}
+.token-selector {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.borrow-section,
+.collateral-section {
+  margin-bottom: 20px;
+}
+
+.input-amount {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.checkbox-container {
+  display: flex;
   align-items: center;
+  margin: 20px 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.address-input {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+label {
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.account-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Equal column width for labels and values */
+  gap: 10px;
+}
+
+.account-row span {
+  text-align: left; /* Ensure labels and values align properly */
+}
+
+.connect-btn {
+  padding: 10px 20px;
+  background-color: #61dafb;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem; /* Consistent button font size */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.connect-btn:hover {
+  background-color: #21a1f1;
+}
+
+h1 {
+  margin: 0;
+}
+
+.token-selector {
+  display: flex;
+  flex-direction: column;
+  /* width: 300px; */
+  margin: 100px 750px 0; /* Centered below the header */
+  background-color: #333;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.borrow-section,
+.collateral-section {
+  margin-bottom: 20px;
+}
+
+label {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  display: block;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+select:hover {
+  background-color: #555;
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wallet-info {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+}
+
+.table {
+  padding-top: 20px;
+}
+
+.clickable-row {
+  cursor: pointer;
+  /* Changes the cursor to a pointer when hovering */
+  transition: background-color 0.2s ease;
+  /* Smooth transition for hover effect */
+}
+
+.clickable-row:hover {
+  background-color: #f1f1f1;
+  /* Light gray background on hover */
+  color: #333;
+  /* Optional: Change text color on hover */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
 }
