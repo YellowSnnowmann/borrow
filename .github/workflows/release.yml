@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create placeholder assets
+        run: |
+          echo "macOS build ${GITHUB_REF_NAME}" > "OpenHuman_${GITHUB_REF_NAME}_aarch64.dmg"
+          echo "Windows build ${GITHUB_REF_NAME}" > "OpenHuman_${GITHUB_REF_NAME}_x64-setup.exe"
+
+      - name: Publish Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Release ${{ github.ref_name }}"
+          body: |
+            ## What's new in ${{ github.ref_name }}
+
+            - Test release to verify Discord + Telegram release notifications
+            - Triggered automatically when tag `${{ github.ref_name }}` was pushed
+
+            ## Downloads
+
+            Pick the file for your platform below.
+          files: |
+            OpenHuman_${{ github.ref_name }}_aarch64.dmg
+            OpenHuman_${{ github.ref_name }}_x64-setup.exe
+          draft: false
+          prerelease: false
